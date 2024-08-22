@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Journal Archives | {embed="includes/site_name"}</title>
+{embed="includes/head_links"}
+</head>
+
+<body id="{embed="includes/css-signature"}" class="journal">
+
+<ul id="nav_access">
+<li><a href="#nav_main" title="access key + 0" accesskey="0">Skip to navigation</a></li>
+<li><a href="#content_main" title="access key + 1" accesskey="1">Skip main content</a></li>
+</ul>
+
+<div id="container">
+
+<div id="nav_main">
+<h4>Main navigation</h4>
+<ul>
+{embed="includes/main_navigation"}
+</ul>
+</div>
+
+<div id="branding">
+{embed="includes/branding"}
+</div>
+
+<div id="content">
+
+<div id="content_main">
+<h2>Journal Archives</h2>
+<ol>
+{exp:channel:entries channel="journal" category="not 8" orderby="date" sort="desc" limit="400"}
+{date_heading display="monthly"}
+<li><h3>{entry_date format="%F %Y"}</h3></li>
+{/date_heading}
+<li><a href="{title_permalink="journal/more"}">{title}</a>{if comment_total < 1}{/if}
+{if comment_total > 1} ({comment_total} replies){/if}</li>
+{/exp:channel:entries}
+</ol>
+</div>
+
+<div id="content_sub">
+
+{embed="includes/nav_sub"}
+
+<div id="photos">
+{embed="includes/flickr"}
+</div>
+
+<h4>Categories</h4>
+<ul>
+{exp:channel:categories channel="journal" show="not 8" style="linear"}
+<li><a href="{path=journal/index}">{category_name}</a></li>
+{/exp:channel:categories}
+</ul>
+
+<h4>Recent articles</h4> 
+<ul>
+{exp:channel:entries channel="journal" limit="1" category="not 8" dynamic="off"}
+<li>
+<h5><a href="{title_permalink="journal/more"}">{title}</a></h5>
+{j_summary}
+</li>
+{/exp:channel:entries}
+
+{exp:channel:entries channel="journal" offset="1" limit="5" category="not 8" dynamic="off"}
+<li><a href="{title_permalink="journal/more"}">{title}</a></li>
+{/exp:channel:entries}
+</ul>
+
+{embed="includes/rss"}
+</div>
+</div>
+
+<div id="siteinfo">
+{embed="includes/siteinfo"}
+</div>
+</div>
+</body>
+</html>

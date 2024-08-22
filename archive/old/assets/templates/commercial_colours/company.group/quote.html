@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Quotation request | {embed="includes/site_name"}</title>
+{embed="includes/head_links"}
+</head>
+
+<body id="{embed="includes/css-signature"}" class="article">
+
+<div id="container">
+
+<div id="nav_main">
+<ul>
+{embed="includes/main_navigation"}
+</ul>
+</div>
+
+<div id="branding">
+{embed="includes/branding"}
+</div>
+
+<div id="content">
+
+<div id="content_main">
+<h2>Quotation request</h2>
+
+<p>If you would like us to send an estimate for repairing/refurbishing any commercial vehicle, please complete the form below including as many details as possible, so that we can give you as accurate an estimate as possible prior to inspecting the vehicle.</p>
+
+{exp:email:contact_form user_recipients="false" recipients="mark.jacques@commercialcolours.co.uk" charset="utf-8" return="http://www.commercialcolours.co.uk/company/quote"}
+
+<fieldset>
+<input type="hidden" name="subject" value="Commercial Quotation Contact Form" />
+<label for="req_name"><span>Your name <em title="Required">*</em></span>
+<input type="text" id="req_name" name="message[]" /></label>
+
+<label for="std_company"><span>Company name</span>
+<input type="text" id="std_company" name="message[]" /></label>
+</fieldset>
+
+<fieldset>
+<label for="std_road"><span>Street or road name</span>
+<input type="text" id="std_road" name="message[]" /></label>
+
+<label for="std_address"><span>Address</span>
+<input type="text" id="std_address" name="message[]" /></label>
+
+<label for="std_town"><span>Town or city</span>
+<input type="text" id="std_town" name="message[]" /></label>
+
+<label for="std_county"><span>County</span>
+<input type="text" id="std_county" name="message[]" /></label>
+
+<label for="req_postcode"><span>Postcode <em title="Required">*</em></span>
+<input type="text" id="req_postcode" name="message[]" /></label>
+</fieldset>
+
+<fieldset>
+<label for="std_phone"><span>Telephone</span>
+<input type="text" id="std_phone" name="message[]" /></label>
+
+<label for="std_mobile"><span>Mobile phone</span>
+<input type="text" id="std_mobile" name="message[]" /></label>
+
+<label for="std_fax"><span>Fax</span>
+<input type="text" id="std_fax" name="message[]" /></label>
+
+<label for="req_email"><span>Email <em title="Required">*</em></span>
+<input type="text" id="req_email" name="from" /></label>
+</fieldset>
+
+<fieldset>
+<label for="std_make"><span>Vehicle make</span>
+<input type="text" id="std_make" name="message[]" /></label>
+
+<label for="std_model"><span>Vehicle model</span>
+<input type="text" id="std_model" name="message[]" /></label>
+
+<label for="std_type"><span>Vehicle type</span>
+<input type="text" id="std_type" name="message[]" /></label>
+</fieldset>
+
+<fieldset>
+<label for="req_message"><span>Details of the work required</span>
+<textarea id="req_message" name="message[]" cols="40" rows="10"></textarea></label>
+</fieldset>
+
+<div><input type="submit" name="submit" value="Send" /></div>
+{/exp:email:contact_form}
+
+<p>You can also <a href="mailto:mark.jacques@commercialcolours.co.uk">email photographs of your vehicle</a> to us to accompany your request.</p>
+</div>
+
+<div id="content_sub">
+
+{embed="includes/nav_sub"}
+
+<h3>Photos from our workshop</h3>
+{embed="includes/flickr"}
+</div>
+</div>
+
+<div id="siteinfo">
+{embed="includes/siteinfo"}
+</div>
+</div>
+</body>
+</html>

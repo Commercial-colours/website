@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Frequently asked questions | {embed="includes/site_name"}</title>
+{embed="includes/head_links"}
+</head>
+
+<body id="{embed="includes/css-signature"}" class="article">
+
+<div id="container">
+
+<div id="nav_main">
+<ul>
+{embed="includes/main_navigation"}
+</ul>
+</div>
+
+<div id="branding">
+{embed="includes/branding"}
+</div>
+
+<div id="content">
+
+<div id="content_main">
+<h2>Frequently asked questions</h2>
+
+<ul id="qa">
+{exp:channel:entries channel="company" category="11"}
+<li>
+<h3><a href="{title_permalink="company/"}">{title}</a></h3>
+{summary}
+</li>
+{/exp:channel:entries}
+</ul>
+</div>
+
+<div id="content_sub">
+{embed="includes/nav_sub"}
+<h3>Photos from our workshop</h3>
+{embed="includes/flickr"}
+</div>
+</div>
+
+<div id="siteinfo">
+{embed="includes/siteinfo"}
+</div>
+</div>
+</body>
+</html>

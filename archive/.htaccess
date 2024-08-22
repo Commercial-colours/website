@@ -1,0 +1,21 @@
+AddType video/ogg .ogv
+AddType video/mp4 .mp4
+AddType video/webm .webm
+    
+AcceptPathInfo On
+
+    Options -Indexes
+
+    <IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    Options +FollowSymLinks
+
+    # Looks for files and directories that do not exist
+    # and provide the segments to the index.php file
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond $1 !^/index.php
+    RewriteCond $1 !.(css|js|png|jpe?g|gif|ico)$ [NC]
+    RewriteRule ^(.*)$ index.php?/$1 [L]
+    </IfModule>  

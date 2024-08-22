@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Journal | {exp:channel:entries channel="journal"}{title}{exp:channel:entries} | {embed="includes/site_name"}</title>
+{embed="includes/head_links"}
+</head>
+
+<body id="{embed="includes/css-signature"}" class="journal entry">
+
+<ul id="nav_access">
+<li><a href="#nav_main" title="access key + 0" accesskey="0">Skip to navigation</a></li>
+<li><a href="#content_main" title="access key + 1" accesskey="1">Skip main content</a></li>
+</ul>
+
+<div id="container">
+
+<div id="nav_main">
+<h4>Main navigation</h4>
+<ul>
+{embed="includes/main_navigation"}
+</ul>
+</div>
+
+<div id="branding">
+{embed="includes/branding"}
+</div>
+
+<div id="content">
+
+<div id="content_main">
+<h2>Journal</h2>
+
+{exp:channel:entries channel="journal" limit="1"}
+<h3>{title}</h3>
+{j_summary}
+{j_body}
+{j_extended}
+{j_inline_images}
+{if allow_comments}<h4 id="replies">{comment_total} reader replies so far</h4>{/if}
+{/exp:channel:entries}
+
+<ol>
+{exp:comment:entries sort="asc" limit="999"}
+<li id="r{absolute_count}">
+<em><a href="{comment_url_title_auto_path}#r{comment_id}" title="Permalink this reply">#{absolute_count}</a></em>
+<blockquote>
+{comment}
+</blockquote>
+<cite>{url_as_author} <span>{comment_date format='%d/%m/%y'} at {comment_date format='%H:%i'}</span></cite>
+</li>
+{/exp:comment:entries}
+</ol>
+
+<h3>Leave a reply</h3>
+
+{exp:comment:form}
+{if not_logged_in}
+<fieldset>
+<p><strong>Email address:</strong> Email addresses are never published. <strong>Website address:</strong> This is collected so readers can visit your website.</p>
+<label for="req_name"><span>Your name <em title="Required">*</em></span>
+<input type="text" id="req_name" name="name" value="{name}" /></label>
+<label for="req_email"><span>Email address <em title="Required">*</em></span>
+<input type="text" id="req_email" name="email" value="{email}" /></label>
+<label for="std_url"><span>Web site address</span>
+<input type="text" id="std_url" name="url" value="{url}" /></label>
+</fieldset>
+{/if}
+
+<fieldset>
+<p><strong>About replies:</strong> Please be respectful when posting comments. IP addresses are logged and can be banned.</p>
+<label for="req_reply"><span>Your reply</span>
+<textarea id="req_reply" name="comment" cols="40" rows="10">{comment}</textarea></label>
+</fieldset>
+
+<fieldset>
+{if not_logged_in}<div><input type="checkbox" name="save_info" value="yes" {save_info} /> Remember my personal information</div>{/if}
+<div><input type="checkbox" name="notify_me" value="yes" {notify_me} /> Notify me of follow-up replies</div>
+</fieldset>
+
+<div><input type="submit" name="submit" value="Post reply" /></div>
+{/exp:comment:form}
+</div>
+
+<div id="content_sub">
+
+{embed="includes/nav_sub"}
+
+<div id="photos">
+{embed="includes/flickr"}
+</div>
+
+<h4>Categories</h4>
+<ul>
+{exp:channel:categories channel="journal" show="not 8" style="linear"}
+<li><a href="{path=journal/index}">{category_name}</a></li>
+{/exp:channel:categories}
+</ul>
+
+<h4>Recent articles</h4> 
+<ul>
+{exp:channel:entries channel="journal" limit="1" category="not 8" dynamic="off"}
+<li>
+<h5><a href="{title_permalink="journal/more"}">{title}</a></h5>
+{j_summary}
+</li>
+{/exp:channel:entries}
+{exp:channel:entries channel="journal" offset="1" limit="5" category="not 8" dynamic="off"}
+<li><a href="{title_permalink="journal/more"}">{title}</a></li>
+{/exp:channel:entries}
+</ul>
+
+<h4><a href="{path="journal/archives"}">Complete archives</a></h4>
+{embed="includes/rss"}
+</div>
+</div>
+
+<div id="siteinfo">
+{embed="includes/siteinfo"}
+</div>
+</div>
+</body>
+</html>

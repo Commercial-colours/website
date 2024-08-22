@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>{embed="includes/site_name"}</title>
+{embed="includes/head_links"}
+</head>
+
+<body id="{embed="includes/css-signature"}" class="article">
+
+<div id="container">
+
+<div id="nav_main">
+<ul>
+{embed="includes/main_navigation"}
+</ul>
+</div>
+
+<div id="branding">
+{embed="includes/branding"}
+</div>
+
+<div id="content">
+<div id="content_main">
+
+{if segment_2 == ""}
+{exp:channel:entries channel="company" limit="1" category="4"}
+<h2>{title}</h2>
+{if inline_images}<div class="banner">{inline_images}</div>{/if}
+{summary}
+{body}
+{extended}
+{/exp:channel:entries}
+{/if}
+
+{if segment_2 != ""}
+{exp:channel:entries channel="company" limit="1"}
+<h2>{title}</h2>
+{if inline_images}<div class="banner">{inline_images}</div>{/if}
+{summary}
+
+{if segment_2 == "C10"}
+<div class="vcard">
+<div class="fn org">Commercial Colours</div>
+<div class="adr">
+<div class="street-address">Zone 3, Link 56, Weighbridge Road</div>
+<div>Deeside Industrial Park</div>
+<div class="locality">Deeside</div>
+<div class="region">Flintshire</div>
+<div class="postal-code">CH5 2LL</div>
+</div >
+<div>Phone: <span class="tel">01244 281352</span></div>
+<div>Email: <a href="mailto:admin@commercialcolours.co.uk">admin@commercialcolours.co.uk</a></div>
+</div >
+
+
+
+{/if}
+
+
+
+
+{body}
+{extended}
+{/exp:channel:entries}
+{/if}
+</div>
+
+<div id="content_sub">
+{embed="includes/nav_sub"}
+<h3>Photos from our workshop</h3>
+{embed="includes/flickr"}
+
+{if segment_2 != "C10"}{embed="includes/mailing_list"}{/if}
+</div>
+</div>
+
+<div id="siteinfo">
+{embed="includes/siteinfo"}
+</div>
+</div>
+</body>
+</html>
